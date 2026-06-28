@@ -18,6 +18,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Corregir formato de gradlew
+        run: sed -i 's/\r//' MeseroApp/gradlew
+
       - name: Dar permisos a Gradle
         run: chmod +x MeseroApp/gradlew
 
