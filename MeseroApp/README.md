@@ -79,4 +79,4 @@ app/src/main/java/com/restaurante/mesero/
 
 - Para cambiar los datos de ejemplo (mesas, categorías, productos iniciales), edita el
   SeedCallback en data/local/AppDatabase.kt.
-- Para cambiar la paleta de colores, edita ui/theme/Color.kt.
+- Para cambiar la paleta de colores, edita ui/theme/Color.kt. 
