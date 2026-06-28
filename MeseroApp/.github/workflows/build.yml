@@ -1,0 +1,32 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Dar permisos a Gradle
+        run: chmod +x MeseroApp/gradlew
+
+      - name: Compilar APK debug
+        working-directory: MeseroApp
+        run: ./gradlew assembleDebug
+
+      - name: Subir APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug
+          path: MeseroApp/app/build/outputs/apk/debug/app-debug.apk
